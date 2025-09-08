@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'ehs-schedule-v7'; // increment with each update
+const CACHE_NAME = 'ehs-schedule-v8'; // bump version
 const CORE_HTML = ['./', './index.html'];
 const ASSETS = [
   './manifest.json',
@@ -12,7 +12,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll([...CORE_HTML, ...ASSETS]))
   );
-  self.skipWaiting();         // make this SW activate ASAP
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -21,28 +21,22 @@ self.addEventListener('activate', (event) => {
       Promise.all(keys.map(k => (k === CACHE_NAME ? null : caches.delete(k))))
     )
   );
-  self.clients.claim();       // new SW starts controlling open pages
+  self.clients.claim();
 });
 
-// Helper: cache put safely (opaque responses etc.)
 async function putInCache(request, response) {
   try {
     const cache = await caches.open(CACHE_NAME);
     await cache.put(request, response.clone());
-  } catch (e) {
-    // ignore caching errors (e.g., opaque)
-  }
+  } catch {}
   return response;
 }
 
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
-
-  // Only handle same-origin GET requests
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
 
-  // 1) Network-first for HTML (navigation and index.html)
   const isHTML =
     req.mode === 'navigate' ||
     req.destination === 'document' ||
@@ -64,7 +58,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2) Stale-while-revalidate for everything else (icons, manifest, etc.)
   event.respondWith(
     (async () => {
       const cached = await caches.match(req);
