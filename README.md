@@ -1,17 +1,17 @@
 # EHS Schedule PWA
 
-A simple installable web app to show the current period and schedule at **Ellensburg High School (2025–2026)**.  
+A simple installable web app (Progressive Web App, or PWA) to show the current period and schedule at **Ellensburg High School (2025–2026)**.  
 Works on **Android**, **iPhone/iPad (via Safari)**, and desktop.
 
-## 🚀 Features
+## Features
 - Shows which period is happening now, and when it ends
 - Highlights the **current period**
-- Auto-detects the correct schedule (A/B/C/Assembly) by weekday, with manual override
+- Auto-detects the correct schedule (A/B/C) by weekday, with manual override for Assembly days or to simply to see other schedules
 - Works offline (cached with a service worker)
 - Installable as a PWA (appears like a native app)
 - Custom icons and footer attribution
 
-## 📱 Install Instructions
+## Installation Instructions
 
 ### Android
 1. Open Chrome and go to:  
@@ -28,7 +28,7 @@ Works on **Android**, **iPhone/iPad (via Safari)**, and desktop.
 ### Desktop (optional)
 Open the site in Chrome/Edge → click the **install icon** in the address bar.
 
-## 🔄 Updating
+## Updating
 - App updates are automatic when you reload the page.
 - If you don’t see changes, **refresh** in the browser or **Clear site data** in browser settings.
 
@@ -42,3 +42,4 @@ Open the site in Chrome/Edge → click the **install icon** in the address bar.
 ## 🙋 Credits
 Built by **Dominic Klyve** with help from GPT-5.  
 Open source for anyone at EHS who wants to use it!
+Send comments, questions, and bug reports to dominic.klyve@gmail.com
