@@ -54,21 +54,5 @@
 <p class="foot">Ellensburg High School 2025-2026 Schedule Tracking App by Dominic Klyve and GPT-5. Bugs
 and feature requests can be sent to dominic.klyve@gmail.com.</p>
 
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    const reg = await navigator.serviceWorker.register('./service-worker.js?v=8');
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshing) return;
-      refreshing = true;
-      setTimeout(() => window.location.reload(), 100);
-    });
-    if (reg.update) reg.update();
-  });
-}
-
-// ... keep the rest of your JavaScript logic unchanged ...
-</script>
 </body>
 </html>
