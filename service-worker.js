@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'ehs-schedule-v4'; // bump this after each update
+const CACHE_NAME = 'ehs-schedule-v4'; // increment with each update
 const CORE_HTML = ['./', './index.html'];
 const ASSETS = [
   './manifest.json',
