@@ -25,21 +25,19 @@
 </head>
 <body>
 <div class="card">
-  <h1>EHS Schedule</h1>
+  <h1>EHS Bell Schedule</h1>
   <div class="controls">
-    <label><input type="checkbox" id="assemblyToggle"> Assembly Day</label>
     <select id="forceSchedule">
-      <option value="">Auto (by weekday)</option>
-      <option value="A">Force A (Mon/Fri)</option>
-      <option value="B">Force B (Tue/Thu)</option>
-      <option value="C">Force C (Wed)</option>
-      <option value="D">Force D (Assembly)</option>
+      <option value="">Auto (today)</option>
+      <option value="A">Schedule A (Mon/Fri)</option>
+      <option value="B">Schedule B (Tue/Thu)</option>
+      <option value="C">Schedule C (Wed)</option>
+      <option value="D">Schedule D (Assembly)</option>
     </select>
   </div>
   <div id="today" class="muted"></div>
   <div id="summary"></div>
   <div id="list"></div>
-  <p class="foot">Install: In Chrome, open this page → look for the Install banner, or ︙ → <em>Install app</em>.</p>
 </div>
 
 <script>
@@ -92,8 +90,7 @@ function weekdayToDefaultKey(dow) {
   if (dow === 3) return 'C';
   return 'A';
 }
-function pickScheduleKey(now, forced, assembly) {
-  if (assembly) return 'D';
+function pickScheduleKey(now, forced) {
   if (forced) return forced;
   return weekdayToDefaultKey(now.getDay());
 }
@@ -130,12 +127,11 @@ function renderTodayLine(now) {
   document.getElementById('today').textContent = now.toLocaleDateString(undefined, opts);
 }
 function tick() {
-  const assembly = document.getElementById('assemblyToggle').checked;
   const forced = document.getElementById('forceSchedule').value || null;
   const now = new Date();
   renderTodayLine(now);
   const minutesNow = now.getHours()*60 + now.getMinutes();
-  const key = pickScheduleKey(now, forced, assembly);
+  const key = pickScheduleKey(now, forced);
   const result = computeNow(key, minutesNow);
   renderList(key, minutesNow);
   const summary = document.getElementById('summary');
@@ -154,7 +150,7 @@ function tick() {
   }
   summary.innerHTML = html;
 }
-['assemblyToggle','forceSchedule'].forEach(id => document.getElementById(id).addEventListener('input', tick));
+['forceSchedule'].forEach(id => document.getElementById(id).addEventListener('input', tick));
 tick();
 setInterval(tick, 15000);
 </script>
