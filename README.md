@@ -32,14 +32,14 @@ Open the site in Chrome/Edge → click the **install icon** in the address bar.
 - App updates are automatic when you reload the page.
 - If you don’t see changes, **refresh** in the browser or **Clear site data** in browser settings.
 
-## 🛠 Development
+## Development
 - `index.html` contains the UI layout and styles.
 - `app.js` contains the schedule logic.
 - `service-worker.js` handles caching and offline support.
 - `manifest.json` defines app metadata and icons.
 - Icons (`icon-128.png`, `icon-192.png`, `icon-512.png`) provide the app logo.
 
-## 🙋 Credits
-Built by **Dominic Klyve** with help from GPT-5.  
-Open source for anyone at EHS who wants to use it!
-Send comments, questions, and bug reports to dominic.klyve@gmail.com
+## Credits
+- Built by **Dominic Klyve** with help from GPT-5.  
+- Open source for anyone at EHS who wants to use it!
+- Send comments, questions, and bug reports to dominic.klyve@gmail.com
