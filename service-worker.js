@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'ehs-schedule-v8'; // bump version
+const CACHE_NAME = 'ehs-schedule-v10'; // bump version
 const CORE_HTML = ['./', './index.html'];
 const ASSETS = [
   './manifest.json',
