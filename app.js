@@ -12,6 +12,46 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// --- Cloudflare virtual pageview helper ---
+function cfVirtualPageview(path) {
+  try {
+    window._cfq = window._cfq || [];
+    window._cfq.push(['set', 'page', path]);
+    window._cfq.push(['trackPageview']);
+  } catch (e) {}
+}
+
+// A) Chrome/Edge (Android/desktop) fire this event when installed from browser UI
+window.addEventListener('appinstalled', () => {
+  cfVirtualPageview('/pwa-installed');
+});
+
+// B) iOS Safari never fires appinstalled; detect standalone mode on first run
+(function () {
+  const isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    (typeof navigator !== 'undefined' && navigator.standalone); // iOS < 13
+  if (isStandalone) {
+    const k = 'pwa_ios_install_logged';
+    if (!localStorage.getItem(k)) {
+      cfVirtualPageview('/pwa-installed-ios');
+      localStorage.setItem(k, '1');
+    }
+  }
+})();
+
+// C) Fallback: first time a SW is ready, count it once per device
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.ready.then(() => {
+    const k = 'pwa_sw_ready_logged';
+    if (!localStorage.getItem(k)) {
+      cfVirtualPageview('/pwa-sw-ready');
+      localStorage.setItem(k, '1');
+    }
+  });
+}
+
+
 // ---- Bell schedule logic ----
 const RAW = {
   "A": [
