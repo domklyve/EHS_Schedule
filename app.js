@@ -57,23 +57,14 @@ const RAW = {
   "A": [
     {"period": "1", "start": "7:50", "end": "8:45"},
     {"period": "2", "start": "8:50", "end": "9:45"},
-    {"period": "3", "start": "9:50", "end": "10:45"},
-    {"period": "Lunch", "start": "10:50", "end": "11:20"},
-    {"period": "4", "start": "11:25", "end": "12:20"},
-    {"period": "5", "start": "12:25", "end": "1:20"},
-    {"period": "6", "start": "1:25", "end": "2:20"}
-  ],
-  "B": [
-    {"period": "1", "start": "7:50", "end": "8:40"},
-    {"period": "2", "start": "8:45", "end": "9:35"},
-    {"period": "10 (Advisory)", "start": "9:35", "end": "10:05"},
+    {"period": "Advisory": "start": "9:50", "end": "10:05:},
     {"period": "3", "start": "10:10", "end": "11:00"},
     {"period": "Lunch", "start": "11:05", "end": "11:35"},
     {"period": "4", "start": "11:40", "end": "12:30"},
     {"period": "5", "start": "12:35", "end": "1:25"},
     {"period": "6", "start": "1:30", "end": "2:20"}
   ],
-  "C": [
+  "B": [
     {"period": "1", "start": "7:50", "end": "8:30"},
     {"period": "2", "start": "8:35", "end": "9:20"},
     {"period": "3", "start": "9:25", "end": "10:05"},
@@ -81,9 +72,10 @@ const RAW = {
     {"period": "5", "start": "10:55", "end": "11:35"},
     {"period": "6", "start": "11:40", "end": "12:20"},
     {"period": "Lunch", "start": "12:20", "end": "12:50"}
+
   ],
-  "D": [
-    {"period": "1", "start": "7:50", "end": "8:35"},
+  "C": [
+   {"period": "1", "start": "7:50", "end": "8:35"},
     {"period": "2", "start": "8:40", "end": "9:25"},
     {"period": "Assembly", "start": "9:30", "end": "10:25"},
     {"period": "3", "start": "10:30", "end": "11:15"},
@@ -91,6 +83,15 @@ const RAW = {
     {"period": "4", "start": "11:55", "end": "12:40"},
     {"period": "5", "start": "12:45", "end": "1:30"},
     {"period": "6", "start": "1:35", "end": "2:20"}
+  ],
+  "D": [
+    {"period": "1", "start": "9:50", "end": "10:25"},
+    {"period": "2", "start": "10:30", "end": "11:05"},
+    {"period": "3", "start": "11:10", "end": "11:45"},
+    {"period": "Lunch", "start": "11:50", "end": "12:20"},
+    {"period": "4", "start": "12:25", "end": "1:00"},
+    {"period": "5", "start": "1:05", "end": "1:40"},
+    {"period": "6", "start": "1:45", "end": "2:20"}
   ]
 };
 
