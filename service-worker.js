@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'ehs-schedule-v14';
+const CACHE_NAME = 'ehs-schedule-v16';
 const CORE_HTML = ['./', './index.html'];
 const ASSETS = [
   './manifest.json',
