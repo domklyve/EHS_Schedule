@@ -57,7 +57,7 @@ const RAW = {
   "A": [
     {"period": "1", "start": "7:50", "end": "8:45"},
     {"period": "2", "start": "8:50", "end": "9:45"},
-    {"period": "Advisory": "start": "9:50", "end": "10:05:},
+    {"period": "Advisory": "start": "9:50", "end": "10:05"},
     {"period": "3", "start": "10:10", "end": "11:00"},
     {"period": "Lunch", "start": "11:05", "end": "11:35"},
     {"period": "4", "start": "11:40", "end": "12:30"},
