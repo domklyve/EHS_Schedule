@@ -120,7 +120,7 @@ function inflateDay(blocks){
 const SCHEDULES = {};
 for (const key of Object.keys(RAW)) SCHEDULES[key] = inflateDay(RAW[key]);
 
-function weekdayToDefaultKey(d){ if(d===1||d===5) return 'A'; if(d===2||d===4) return 'B'; if(d===3) return 'C'; return 'A'; }
+function weekdayToDefaultKey(d){ if(d===3) return 'B'; if(d===1||d===2||d===4||d===5) return 'A'; return 'A'; }
 function pickScheduleKey(now, forced){ return forced || weekdayToDefaultKey(now.getDay()); }
 
 function computeNow(key, minutesNow){
